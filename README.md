@@ -1,3 +1,52 @@
+---
+
+# Terraform AWS Setup
+
+Terraform AWS Setup is a Terraform module collection for deploying foundational AWS resources like VPC, EC2 key pair, and an EC2 bastion instance.
+
+## Prerequisites
+
+- Terraform installed on your machine.
+- AWS CLI configured with appropriate credentials.
+
+## Installation
+
+Start by cloning the repository or downloading the Terraform files. Navigate to the directory containing the Terraform files.
+
+```bash
+git clone https://github.com/acarir/bastion-host-terraform-template.git
+cd bastion-host-terraform-template
+```
+
+Then, initialize Terraform:
+
+```bash
+terraform init
+```
+
+## Usage
+
+1. **Planning**: This step will show you the changes that will be made in your AWS environment.
+
+    ```bash
+    terraform plan -var-file=<YOUR_TFVARS_FILE>.tfvars
+    ```
+
+    Replace `<YOUR_TFVARS_FILE>` with the name of your variable file.
+
+2. **Applying**: Once you've reviewed and are satisfied with the plan, apply the changes.
+
+    ```bash
+    terraform apply -var-file=<YOUR_TFVARS_FILE>.tfvars
+    ```
+
+3. **Destroying**: To remove the resources:
+
+    ```bash
+    terraform destroy -var-file=<YOUR_TFVARS_FILE>.tfvars
+    ```
+
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
