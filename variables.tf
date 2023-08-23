@@ -1,35 +1,35 @@
 variable "ec2_name" {
-  type    = string
+  type = string
 }
 
 variable "ec2_type" {
-  type    = string
+  type = string
 }
 
 variable "vpc_cidr" {
-  type    = string
+  type = string
 }
 
 variable "ssh_cidr_blocks" {
-  type    = list(string)
+  type = list(string)
 }
 
 variable "vpc_id" {
-  type    = string
+  type = string
 }
 
 variable "subnet_id" {
-  type    = string
+  type = string
 }
 
 variable "key_name" {
-  type    = string
+  type = string
 }
 
 variable "public_subnet_cidr_block" {
-  type    = string
+  type = string
 }
 
 variable "private_subnet_cidr_blocks" {
-  type    = list(string)
+  type = list(string)
 }
