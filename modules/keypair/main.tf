@@ -17,5 +17,5 @@ resource "tls_private_key" "this" {
 resource "local_file" "tf-key" {
   count    = var.create_private_key ? 1 : 0
   content  = tls_private_key.this[0].private_key_pem
-  filename = "${var.key_name}-key-pair"
+  filename = "${path.cwd}/${var.key_name}-key-pair"
 }

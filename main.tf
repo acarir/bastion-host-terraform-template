@@ -1,9 +1,9 @@
 module "vpc" {
-    source = "./modules/vpc"
-    vpc_name = "prod"
-    vpc_cidr = var.vpc_cidr
-    public_subnet_cidr_block  = var.public_subnet_cidr_block
-    private_subnet_cidr_blocks = var.private_subnet_cidr_blocks
+  source                     = "./modules/vpc"
+  vpc_name                   = "prod"
+  vpc_cidr                   = var.vpc_cidr
+  public_subnet_cidr_block   = var.public_subnet_cidr_block
+  private_subnet_cidr_blocks = var.private_subnet_cidr_blocks
 }
 
 module "keypair" {

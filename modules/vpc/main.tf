@@ -10,24 +10,23 @@ resource "aws_vpc" "vpc" {
 }
 
 resource "aws_subnet" "subnet-public" {
-    vpc_id = aws_vpc.vpc.id
-    cidr_block = var.public_subnet_cidr_block
-    map_public_ip_on_launch = "true"
-    availability_zone       = data.aws_availability_zones.available.names[0]
-    tags = {
-        Name = "${var.vpc_name}-subnet-public"
-    }
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = var.public_subnet_cidr_block
+  map_public_ip_on_launch = "true"
+  availability_zone       = data.aws_availability_zones.available.names[0]
+  tags = {
+    Name = "${var.vpc_name}-subnet-public"
+  }
 }
 
 resource "aws_subnet" "subnet-private" {
-    vpc_id = aws_vpc.vpc.id
-    count = length(var.private_subnet_cidr_blocks)
-    cidr_block = var.private_subnet_cidr_blocks[count.index]
-    map_public_ip_on_launch = "true"
-    availability_zone       = data.aws_availability_zones.available.names[0]
-    tags = {
-        Name = "${var.vpc_name}-subnet-private-${count.index}"
-    }
+  vpc_id            = aws_vpc.vpc.id
+  count             = length(var.private_subnet_cidr_blocks)
+  cidr_block        = var.private_subnet_cidr_blocks[count.index]
+  availability_zone = data.aws_availability_zones.available.names[count.index % length(data.aws_availability_zones.available.names)]
+  tags = {
+    Name = "${var.vpc_name}-subnet-private-${count.index}"
+  }
 }
 
 resource "aws_internet_gateway" "igw" {

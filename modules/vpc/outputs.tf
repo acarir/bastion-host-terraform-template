@@ -7,5 +7,5 @@ output "public_subnet_id" {
 }
 
 output "private_subnet_ids" {
-  value = toset(aws_subnet.subnet-private[*].id)
+  value = aws_subnet.subnet-private[*].id
 }
